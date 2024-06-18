@@ -22,7 +22,7 @@ taylor.diagram<-function(ref,model,add=FALSE,col="red",pch=19,pos.cor = TRUE,
     xlab = "Standard deviation", ylab = "", main = "Taylor Diagram",
     show.gamma = TRUE, ngamma = 3, gamma.col = 8, sd.arcs = 0, ref.sd = FALSE,
     sd.method = "sample", grad.corr.lines = c(0.2, 0.4, 0.6, 0.8, 0.9), 
-    pcex = 1, cex.axis = 1, normalize = FALSE, mar = c(4, 3, 4, 3), ...) {
+    pcex = 1, cex.axis = 1, normalize = FALSE, mar = c(4, 3, 4, 3), number = 3.0,...) {
     
     grad.corr.full <- c(0, 0.2, 0.4, 0.6, 0.8, 0.9, 0.95, 0.99, 1)
   # convert any list elements or data frames to vectors
@@ -53,6 +53,7 @@ taylor.diagram<-function(ref,model,add=FALSE,col="red",pch=19,pos.cor = TRUE,
        if (pos.cor) {
             if (nchar(ylab) == 0) 
                 ylab = "Standard deviation"
+            maxsd = number / 1.0
             plot(0, xlim = c(0, maxsd*1.1), ylim = c(0, maxsd*1.1), xaxs = "i", 
                 yaxs = "i", axes = FALSE, main = main, xlab = "", 
                 ylab = ylab, type = "n", cex = cex.axis, ...)
